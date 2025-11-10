@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zarda.vx14 | سەرۆکی بازرگانی</title>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Arabic-support font for Sorani -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+
+    <style>
+        @font-face {
+  font-family: 'Rabar';
+  src: url('fonts/Rabar.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.kurdish-text {
+  font-family: 'Rabar', sans-serif;
+  direction: rtl; /* Right to left */
+  unicode-bidi: bidi-override;
+}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans Arabic', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #8a2be2;
+            --secondary: #ff69b4;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --accent: #ffd700;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            direction: rtl;
+            text-align: right;
+            font-family:r
+
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: transform 0.6s ease, opacity 0.6s ease;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to left, var(--accent), #ffffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            direction: rtl;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 1.2rem;
+            color: rgba(255,255,255,0.95);
+        }
+
+        .boss-badge {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--dark);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            max-width: 1700px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .about {
+            background-color: var(--light);
+            color: var(--dark);
+            text-align: right;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.6rem;
+            flex-direction: row;
+            position: relative;
+            display: inline-block;
+            color: #1a1a2e;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to left, var(--primary), var(--secondary));
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            direction: rtl;
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+           
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            flex-shrink: 0;
+        }
+
+        .about-text {
+            max-width: 600px;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .about-text p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            color: #0f172a;
+        }
+
+        .qualities {
+            background-color: var(--dark);
+            color: var(--light);
+            text-align: right;
+        }
+
+        .qualities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .quality-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            direction: rtl;
+        }
+
+        .quality-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        .quality-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            text-align: center;
+        }
+
+        .quality-card h3 {
+            margin-bottom: 0.6rem;
+            font-size: 1.2rem;
+        }
+
+        .quality-card p {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.98rem;
+        }
+
+        .rules {
+            background-color: var(--light);
+            color: var(--dark);
+            text-align: right;
+        }
+
+        .rules-list {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: right;
+        }
+
+        .rule-item {
+            background: white;
+            margin-bottom: 1rem;
+            padding: 1.2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: transform 0.3s ease;
+            direction: rtl;
+        }
+
+        .rule-item:hover {
+            transform: translateX(-10px);
+        }
+
+        .rule-number {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .contact {
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact h2:after {
+            background: var(--accent);
+        }
+
+        .contact-options {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-option {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 1.6rem;
+            border-radius: 10px;
+            width: 220px;
+            transition: transform 0.3s ease, background 0.3s ease;
+            backdrop-filter: blur(6px);
+            color: white;
+            direction: rtl;
+        }
+
+        .contact-option:hover {
+            transform: scale(1.04);
+            background: rgba(255, 255, 255, 0.14);
+        }
+
+        .contact-icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.6rem;
+            color: var(--accent);
+            text-align: center;
+        }
+
+        footer {
+            background-color: #0f0f1a;
+            padding: 2rem 0;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            direction: rtl;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-start;
+        }
+
+        .social-link {
+            color: white;
+            font-size: 1.3rem;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            color: var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .tagline {
+                font-size: 1rem;
+            }
+            .about-content {
+                flex-direction: column;
+            }
+            .profile-img {
+                width: 200px;
+                height: 200px;
+            }
+            .footer-content { flex-direction: column; gap: 0.6rem; }
+            .social-links { justify-content: center; }
+        }
+        .bb{
+            font-size: x-large;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>zarda.vx14</h1>
+                <div class="boss-badge">سەرۆکی گروپی Amazing🤎</div>
+            </div>
+        </div>
+    </header>
+
+    <section class="about">
+        <div class="container">
+            <h2>وێنەیەکی سەرۆک</h2>
+            <div class="about-content">
+                <div class="profile-img" aria-hidden="true">
+                    <img src="./image/Picsart_25-11-10_10-07-30-168-removebg-preview.png" width="100%">
+              
+                </div>
+                <div class="about-text">
+                    <p>سەرۆکێکی خۆشەویستە لە دڵی هەموو میمبەرەکانی وە لە هەمان کات ئەویش وایە بۆ میمبەرەکانی</p>
+                    <p>تا ئێستە کۆشکەکەی پێک هاتووە لە شەش کەس (حەمەش لەکۆشکەکە بوو بەڵام لێفتی کرد 😭)</p>
+                    <p>هەمووی لە ژێر فەرمانی سەرۆکەکەیان ئەجوڵێنەوە هیچ کەسێکیان ناتوانێ بەبێ فەرمانی ئەو هیچ شتێک بکا</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="qualities">
+        <div class="container">
+            <h2 style="color: white;">ئەندامەکانی سەرۆک</h2>
+            <div class="qualities-grid">
+                <div class="quality-card">
+                    <div class="quality-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3> _Hedi7</h3>
+<p><b>🤎دڵی سەرۆک</b></p>                </div>
+
+                <div class="quality-card">
+                    <div class="quality-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3> omar_said_nabard</h3>
+<p><b>🤎هەناسەکەی سەرۆک</b></p>                </div>
+
+                <div class="quality-card">
+                    <div class="quality-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3> lareluqman9</h3>
+                    <p> <b>  🤎تاجی سەری سەرۆک </b></p>
+                </div>
+
+                <div class="quality-card">
+                    <div class="quality-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+
+<h3>diya_abdulla1</h3>
+<p><b>🤎ڕۆحی سەرۆک</b></p>                </div>
+                      <div class="quality-card">
+                    <div class="quality-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+<h3>kalla._.01
+    <p>🤎ناوی دڵی سەرۆک</p>
+</h3>                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="rules">
+        <div class="container">
+            <h2>یاساکانی سەرۆک</h2>
+            <div class="rules-list">
+                <div class="rule-item">
+                    <div class="rule-number">١</div>
+                    <p>کاتێک (نانی خوارد، لە ئیش بوو٫ خەوی هات) کەس نابێ قسە بکات لە گروپ</p></div>
+
+                <div class="rule-item">
+                    <div class="rule-number">٢</div>
+                        <p>ئەبێ نازی هەڵبگێرێ و کەس قسەی بەرامبەر نەکات ئەگینا لێفت ئەکات لە گرووپ</p>                </div>
+
+                <div class="rule-item">
+                    <div class="rule-number">٣</div>
+<p>شەڕ ئەفرۆشێ بەهەمووی و کەس بۆی نییە قسە بکات</p>                </div>
+
+                <div class="rule-item">
+                    <div class="rule-number">٤</div>
+<p>هەر کەسێکی بوێت لە بچوکترین ماوە سەرفی ئەکات (بەبێ هۆکار نایکات مەگەر شتێکی غەڵەتی کردبێ)</p>                </div>
+
+                <div class="rule-item">
+                    <div class="rule-number">٥</div>
+<p>لە  کۆتای دڵخۆشی سەرۆک دڵخۆشی هەموو ئەندامەکانیەتی...</p>                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container">
+            <h2>بۆ هەرکێشەیەک پەیوەندی بکەن بە سەرۆک خۆی</h2>         
+               <div class="contact-options">
+                <div class="contact-option" title="ڕێکخستن بۆ کۆبوونەوە">
+                    <div class="contact-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+<h3><a href="https://www.instagram.com/zarda.vx14">Instagram</a></h3>                    
+                </div>
+
+              
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    <p>&copy; 2025 zarda.vx14 — هەموو مافەکان پارێزراون.</p>
+                </div>
+                <div class="social-links">
+                    <!-- Only Instagram as requested -->
+                    <a href="https://instagram.com/zarda.vx14" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Subtle header animation + quality cards on scroll (works as before)
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('header');
+            const qualities = document.querySelectorAll('.quality-card');
+
+            // Header animation
+            setTimeout(() => {
+                header.style.transform = 'translateY(0)';
+                header.style.opacity = '1';
+            }, 300);
+
+            // Quality cards animation on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            qualities.forEach(quality => {
+                quality.style.opacity = '0';
+                quality.style.transform = 'translateY(20px)';
+                quality.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(quality);
+            });
+        });
+    </script>
+</body>
+</html>
